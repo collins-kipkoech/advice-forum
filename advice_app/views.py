@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import Post
-from django.contrib.auth.forms import UserCreationForm
+from .forms import RegistrationForm
 from django.contrib import messages
 
 # Create your views here.
@@ -13,12 +13,12 @@ def home_view(request):
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, f'Account Created Successfully')
             return redirect('home-view')
 
     else:
-        form = UserCreationForm()
+        form = RegistrationForm()
     return render(request, 'advice/register.html',{'form':form})
