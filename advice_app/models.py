@@ -8,3 +8,7 @@ class Post(models.Model):
     date_posted = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User,on_delete=models.CASCADE)
 
+
+class Comments(models.Model):
+    text = models.TextField()
+    post = models.ForeignKey(Post,on_delete=models.CASCADE)
