@@ -38,8 +38,9 @@
               </p>
               <div class="collapse" id="collapseExample{{post.id}}">
                 <div class="card card-body">
-                  <form method="get">
-                    <input style="padding: 3px;margin: 3px;" placeholder="Write comment" class="form-control" type="text" name="comment">
+                  <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
                     <div class="row">
                       <div class="col"></div>
                       <div class="col">
@@ -57,12 +58,11 @@
 
                   {% for comment in comments %}
                   
-                    
-                  
                   <li class="list-group-item"> {{comment.text}}</li>
 
                  
                   
+                
                   {%endfor%}
                 </ul>
 

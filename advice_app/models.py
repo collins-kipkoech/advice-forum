@@ -10,5 +10,6 @@ class Post(models.Model):
 
 
 class Comments(models.Model):
-    text = models.TextField()
+    comment = models.TextField()
     post = models.ForeignKey(Post,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
