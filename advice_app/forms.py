@@ -21,7 +21,7 @@ class RegistrationForm(UserCreationForm):
 class CommentsForm(forms.ModelForm):
     class Meta:
         model = Comments
-        fields = ['comment']
+        fields = ['text']
 
 
 class PostQuestionForm(forms.ModelForm):

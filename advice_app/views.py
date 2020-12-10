@@ -16,6 +16,7 @@ def home_view(request):
         
         if form.is_valid():
             addComment = form.save(commit=False)
+            addComment.author = request.user
             addComment.save()
             return redirect('home-view')
     else:
@@ -49,7 +50,7 @@ def post_question(request):
             addProject = form.save(commit=False)
             addProject.save()
             
-            messages.success(request,'Your project has been posted successfully')
+            messages.success(request,'Your question has been posted successfully')
             return redirect('home-view')
 
     else:
